@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.crashlytics.android.Crashlytics
+import io.fabric.sdk.android.Fabric
 import kotlinx.android.synthetic.main.activity_main.*
 import kuzhelkodmitry.simplenotes.*
 import kuzhelkodmitry.simplenotes.domain.entities.Note
@@ -28,6 +30,8 @@ class NotesActivity : BaseActivity(), INotesView {
         setAdapterClickListener()
         initRecyclerView()
         initFab()
+
+        Fabric.with(this, Crashlytics())
     }
 
     override fun onStart() {
